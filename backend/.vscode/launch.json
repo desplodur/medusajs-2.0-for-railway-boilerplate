@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Medusa Backend",
+      "type": "node",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "env": {
+        "MEDUSA_DEV": "true",
+        "NODE_ENV": "development"
+      },
+      "outFiles": ["${workspaceFolder}/build/**/*.js"],
+      "sourceMaps": true
+    }
+  ]
+}
