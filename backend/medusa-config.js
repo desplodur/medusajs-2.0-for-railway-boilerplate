@@ -25,7 +25,6 @@ import {
 } from "lib/constants";
 
 loadEnv(process.env.NODE_ENV, process.cwd());
-
 const medusaConfig = {
   projectConfig: {
     databaseUrl: DATABASE_URL,
@@ -98,22 +97,13 @@ const medusaConfig = {
       : []),
     ...(RESEND_API_KEY && RESEND_FROM_EMAIL
       ? [
-          // {
-          //   resolve: "./src/modules/email-notifications",
-          //   id: "my-notification",
-          //   options: {
-          //     channels: ["email"],
-          //     api_key: RESEND_API_KEY,
-          //     from: RESEND_FROM_EMAIL,
-          //   },
-          // },
           {
             resolve: "@medusajs/medusa/notification",
             options: {
               providers: [
                 {
-                  resolve: "./src/modules/resend",
-                  id: "resend",
+                  resolve: "./src/modules/email-notifications",
+                  id: "RESEND_NOTIFICATION_SERVICE",
                   options: {
                     channels: ["email"],
                     api_key: RESEND_API_KEY,
